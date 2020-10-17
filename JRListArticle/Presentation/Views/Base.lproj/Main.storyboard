@@ -15,13 +15,32 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ZV9-bG-CS2">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="lTV-eF-Iuz"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="cTM-jb-Nqx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="ZV9-bG-CS2" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="JgD-Ji-TIu"/>
+                            <constraint firstItem="ZV9-bG-CS2" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XPp-qi-em5"/>
+                            <constraint firstItem="ZV9-bG-CS2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="alK-yq-SdZ"/>
+                            <constraint firstItem="ZV9-bG-CS2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="cJC-xZ-Pdi"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="tblListArticles" destination="ZV9-bG-CS2" id="aoj-qa-BEO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="141" y="100"/>
+            <point key="canvasLocation" x="140" y="99.400299850074973"/>
         </scene>
     </scenes>
     <resources>
