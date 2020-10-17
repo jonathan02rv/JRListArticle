@@ -17,14 +17,6 @@ open class TimberjackHelper: URLProtocol{
     
     public static var logStyle: Style = .verbose
     
-    
-    open class func defaultSessionConfiguration() -> URLSessionConfiguration {
-        let config = URLSessionConfiguration.default
-        config.protocolClasses?.insert(TimberjackHelper.self, at: 0)
-        return config
-    }
-    
-    
     //MARK: - Log
     
     public class func debugPrint(s:String) {

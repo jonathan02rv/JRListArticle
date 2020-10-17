@@ -13,7 +13,7 @@ class ServiceDataSource: ServiceDataSourceProtocol{
     private var sessionManager: SessionManager?
     
     init() {
-        let configuration = TimberjackHelper.defaultSessionConfiguration()
+        let configuration = URLSessionConfiguration.default
         configuration.requestCachePolicy = .reloadRevalidatingCacheData
         configuration.timeoutIntervalForRequest = 20
         configuration.timeoutIntervalForResource = 20
@@ -28,7 +28,6 @@ class ServiceDataSource: ServiceDataSourceProtocol{
         if Reachability.isConnectedToNetwork(){
             guard let requestRef = request as? ArticleRequestObject else{return}
             let url = AppConfig.serverBaseUrl + requestRef.path
-            print(url)
             
             sessionManager?.request(url, method: requestRef.method, parameters: nil, encoding: requestRef.encoding, headers: requestRef.headers).validate().debugLog().responseData(completionHandler: { (response) in
                 

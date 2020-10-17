@@ -38,6 +38,10 @@
 		9A860FFD253B471D00F04F27 /* ArticlesRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A860FFC253B471D00F04F27 /* ArticlesRepositoryProtocol.swift */; };
 		9A861005253B4C3A00F04F27 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A861004253B4C3A00F04F27 /* Interactor.swift */; };
 		9A86100B253B4CAD00F04F27 /* ArticlesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A86100A253B4CAD00F04F27 /* ArticlesInteractor.swift */; };
+		9A861018253B553A00F04F27 /* ListArticlesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A861017253B553A00F04F27 /* ListArticlesViewController.swift */; };
+		9A86101D253B565700F04F27 /* ListArticlesConfigure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A86101C253B565700F04F27 /* ListArticlesConfigure.swift */; };
+		9A861022253B56A200F04F27 /* ListArticlesPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A861021253B56A200F04F27 /* ListArticlesPresenter.swift */; };
+		9A861027253B56D000F04F27 /* ListArticlesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A861026253B56D000F04F27 /* ListArticlesRouter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +98,10 @@
 		9A860FFC253B471D00F04F27 /* ArticlesRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesRepositoryProtocol.swift; sourceTree = "<group>"; };
 		9A861004253B4C3A00F04F27 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
 		9A86100A253B4CAD00F04F27 /* ArticlesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesInteractor.swift; sourceTree = "<group>"; };
+		9A861017253B553A00F04F27 /* ListArticlesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListArticlesViewController.swift; sourceTree = "<group>"; };
+		9A86101C253B565700F04F27 /* ListArticlesConfigure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListArticlesConfigure.swift; sourceTree = "<group>"; };
+		9A861021253B56A200F04F27 /* ListArticlesPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListArticlesPresenter.swift; sourceTree = "<group>"; };
+		9A861026253B56D000F04F27 /* ListArticlesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListArticlesRouter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,7 +155,7 @@
 		9A860F2C253A8BED00F04F27 /* JRListArticle */ = {
 			isa = PBXGroup;
 			children = (
-				9A860FD6253B371000F04F27 /* Resources */,
+				9A86100F253B548900F04F27 /* Presentation */,
 				9A860F2D253A8BED00F04F27 /* AppDelegate.swift */,
 				9A860F2F253A8BED00F04F27 /* SceneDelegate.swift */,
 				9A860F31253A8BED00F04F27 /* ViewController.swift */,
@@ -396,6 +404,74 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		9A86100F253B548900F04F27 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				9A861010253B549F00F04F27 /* ListArticles */,
+				9A860FD6253B371000F04F27 /* Resources */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		9A861010253B549F00F04F27 /* ListArticles */ = {
+			isa = PBXGroup;
+			children = (
+				9A861013253B54E700F04F27 /* Router */,
+				9A861012253B54E100F04F27 /* Presenter */,
+				9A861011253B54D400F04F27 /* View */,
+			);
+			path = ListArticles;
+			sourceTree = "<group>";
+		};
+		9A861011253B54D400F04F27 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9A861016253B550F00F04F27 /* Configurator */,
+				9A861015253B550800F04F27 /* Controller */,
+				9A861014253B54F800F04F27 /* ViewData */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A861012253B54E100F04F27 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9A861021253B56A200F04F27 /* ListArticlesPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9A861013253B54E700F04F27 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9A861026253B56D000F04F27 /* ListArticlesRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		9A861014253B54F800F04F27 /* ViewData */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewData;
+			sourceTree = "<group>";
+		};
+		9A861015253B550800F04F27 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A861017253B553A00F04F27 /* ListArticlesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9A861016253B550F00F04F27 /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9A86101C253B565700F04F27 /* ListArticlesConfigure.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -540,9 +616,11 @@
 				9A860F6A253A995800F04F27 /* ArticleModel.swift in Sources */,
 				9A860F81253A9A1900F04F27 /* HitEntity.swift in Sources */,
 				9A860F2E253A8BED00F04F27 /* AppDelegate.swift in Sources */,
+				9A861027253B56D000F04F27 /* ListArticlesRouter.swift in Sources */,
 				9A860F6F253A996100F04F27 /* HitModel.swift in Sources */,
 				9A860F9D253B21BC00F04F27 /* TimberjackHelper.swift in Sources */,
 				9A860FD2253B35F200F04F27 /* ErrorEntity.swift in Sources */,
+				9A861022253B56A200F04F27 /* ListArticlesPresenter.swift in Sources */,
 				9A861005253B4C3A00F04F27 /* Interactor.swift in Sources */,
 				9A860F38253A8BED00F04F27 /* JRListArticle.xcdatamodeld in Sources */,
 				9A860FE3253B3D0D00F04F27 /* ServiceErrorHandler.swift in Sources */,
@@ -555,8 +633,10 @@
 				9A860FA5253B23DE00F04F27 /* Configuration.swift in Sources */,
 				9A860FC8253B2FC300F04F27 /* ServiceDataSource.swift in Sources */,
 				9A86100B253B4CAD00F04F27 /* ArticlesInteractor.swift in Sources */,
+				9A861018253B553A00F04F27 /* ListArticlesViewController.swift in Sources */,
 				9A860FDE253B388800F04F27 /* BaseResponseEntity.swift in Sources */,
 				9A860FB6253B283700F04F27 /* Requestprotocol.swift in Sources */,
+				9A86101D253B565700F04F27 /* ListArticlesConfigure.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

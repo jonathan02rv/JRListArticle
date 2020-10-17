@@ -13,7 +13,7 @@ public protocol ArticlesInteractorProtocol{
 
 public class ArticlesInteractor:Interactor, ArticlesInteractorProtocol{
     public func getListArticles(completion: @escaping (Result<ArticleModel, Error>) -> Void) {
-        return(self.repository as! ArticlesInteractorProtocol).getListArticles { (result) in
+        return(self.repository as! ArticlesRepositoryProtocol).getListArticles { (result) in
             switch result{
             case .success(let data):
                 completion(.success(data))
