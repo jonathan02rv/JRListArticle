@@ -34,6 +34,8 @@
 		9A860FDE253B388800F04F27 /* BaseResponseEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A860FDD253B388800F04F27 /* BaseResponseEntity.swift */; };
 		9A860FE3253B3D0D00F04F27 /* ServiceErrorHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A860FE2253B3D0D00F04F27 /* ServiceErrorHandler.swift */; };
 		9A860FE9253B3E0800F04F27 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A860FE8253B3E0800F04F27 /* ErrorModel.swift */; };
+		9A860FF8253B46DA00F04F27 /* ArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A860FF7253B46DA00F04F27 /* ArticlesRepository.swift */; };
+		9A860FFD253B471D00F04F27 /* ArticlesRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A860FFC253B471D00F04F27 /* ArticlesRepositoryProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -86,6 +88,8 @@
 		9A860FDD253B388800F04F27 /* BaseResponseEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseResponseEntity.swift; sourceTree = "<group>"; };
 		9A860FE2253B3D0D00F04F27 /* ServiceErrorHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceErrorHandler.swift; sourceTree = "<group>"; };
 		9A860FE8253B3E0800F04F27 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
+		9A860FF7253B46DA00F04F27 /* ArticlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesRepository.swift; sourceTree = "<group>"; };
+		9A860FFC253B471D00F04F27 /* ArticlesRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesRepositoryProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -194,6 +198,7 @@
 		9A860F65253A992700F04F27 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				9A860FFC253B471D00F04F27 /* ArticlesRepositoryProtocol.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -226,6 +231,7 @@
 		9A860F73253A999600F04F27 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
+				9A860FF7253B46DA00F04F27 /* ArticlesRepository.swift */,
 			);
 			path = Repository;
 			sourceTree = "<group>";
@@ -516,6 +522,7 @@
 				9A860F32253A8BED00F04F27 /* ViewController.swift in Sources */,
 				9A860FB1253B279F00F04F27 /* HeadersRequest.swift in Sources */,
 				9A860FC2253B2F0300F04F27 /* ServiceDataSourceProtocol.swift in Sources */,
+				9A860FF8253B46DA00F04F27 /* ArticlesRepository.swift in Sources */,
 				9A860F6A253A995800F04F27 /* ArticleModel.swift in Sources */,
 				9A860F81253A9A1900F04F27 /* HitEntity.swift in Sources */,
 				9A860F2E253A8BED00F04F27 /* AppDelegate.swift in Sources */,
@@ -528,6 +535,7 @@
 				9A860FAC253B277D00F04F27 /* ArticleRequest.swift in Sources */,
 				9A860F79253A9A0B00F04F27 /* ArticleEntity.swift in Sources */,
 				9A860F30253A8BED00F04F27 /* SceneDelegate.swift in Sources */,
+				9A860FFD253B471D00F04F27 /* ArticlesRepositoryProtocol.swift in Sources */,
 				9A860FE9253B3E0800F04F27 /* ErrorModel.swift in Sources */,
 				9A860FA5253B23DE00F04F27 /* Configuration.swift in Sources */,
 				9A860FC8253B2FC300F04F27 /* ServiceDataSource.swift in Sources */,
