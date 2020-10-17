@@ -36,6 +36,8 @@
 		9A860FE9253B3E0800F04F27 /* ErrorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A860FE8253B3E0800F04F27 /* ErrorModel.swift */; };
 		9A860FF8253B46DA00F04F27 /* ArticlesRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A860FF7253B46DA00F04F27 /* ArticlesRepository.swift */; };
 		9A860FFD253B471D00F04F27 /* ArticlesRepositoryProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A860FFC253B471D00F04F27 /* ArticlesRepositoryProtocol.swift */; };
+		9A861005253B4C3A00F04F27 /* Interactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A861004253B4C3A00F04F27 /* Interactor.swift */; };
+		9A86100B253B4CAD00F04F27 /* ArticlesInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A86100A253B4CAD00F04F27 /* ArticlesInteractor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,8 @@
 		9A860FE8253B3E0800F04F27 /* ErrorModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorModel.swift; sourceTree = "<group>"; };
 		9A860FF7253B46DA00F04F27 /* ArticlesRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesRepository.swift; sourceTree = "<group>"; };
 		9A860FFC253B471D00F04F27 /* ArticlesRepositoryProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesRepositoryProtocol.swift; sourceTree = "<group>"; };
+		9A861004253B4C3A00F04F27 /* Interactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interactor.swift; sourceTree = "<group>"; };
+		9A86100A253B4CAD00F04F27 /* ArticlesInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticlesInteractor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -206,6 +210,8 @@
 		9A860F66253A992E00F04F27 /* Interactor */ = {
 			isa = PBXGroup;
 			children = (
+				9A861004253B4C3A00F04F27 /* Interactor.swift */,
+				9A861009253B4C9200F04F27 /* Services */,
 			);
 			path = Interactor;
 			sourceTree = "<group>";
@@ -382,6 +388,14 @@
 			path = ErrorEntity;
 			sourceTree = "<group>";
 		};
+		9A861009253B4C9200F04F27 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				9A86100A253B4CAD00F04F27 /* ArticlesInteractor.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -529,6 +543,7 @@
 				9A860F6F253A996100F04F27 /* HitModel.swift in Sources */,
 				9A860F9D253B21BC00F04F27 /* TimberjackHelper.swift in Sources */,
 				9A860FD2253B35F200F04F27 /* ErrorEntity.swift in Sources */,
+				9A861005253B4C3A00F04F27 /* Interactor.swift in Sources */,
 				9A860F38253A8BED00F04F27 /* JRListArticle.xcdatamodeld in Sources */,
 				9A860FE3253B3D0D00F04F27 /* ServiceErrorHandler.swift in Sources */,
 				9A860F94253AA75300F04F27 /* Rechability.swift in Sources */,
@@ -539,6 +554,7 @@
 				9A860FE9253B3E0800F04F27 /* ErrorModel.swift in Sources */,
 				9A860FA5253B23DE00F04F27 /* Configuration.swift in Sources */,
 				9A860FC8253B2FC300F04F27 /* ServiceDataSource.swift in Sources */,
+				9A86100B253B4CAD00F04F27 /* ArticlesInteractor.swift in Sources */,
 				9A860FDE253B388800F04F27 /* BaseResponseEntity.swift in Sources */,
 				9A860FB6253B283700F04F27 /* Requestprotocol.swift in Sources */,
 			);
