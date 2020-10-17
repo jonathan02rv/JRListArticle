@@ -11,6 +11,7 @@ protocol ListArticlesPresenterProtocol{
     func viewDidLoad()
     func getNumberOfRows()->Int
     func getCellData(forRow row: Int)->(titleText: String, createAtText: String)
+    func getArticles()
 }
 
 class ListArticlesPresenter{
@@ -41,16 +42,15 @@ extension ListArticlesPresenter: ListArticlesPresenterProtocol{
     
     
     func viewDidLoad(){
+        self.view?.startLoading()
         self.getArticles()
     }
     
-}
-
-//MARK: - Call Service
-extension ListArticlesPresenter{
+    //MARK: - Call Service
     func getArticles(){
         self.interactorArticles.getListArticles { [weak self](result) in
             guard let sweak = self else{return}
+            sweak.view?.finishRefresh()
             switch result{
             case .success(let data):
                 sweak.listHit = data

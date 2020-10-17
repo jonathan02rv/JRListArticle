@@ -9,11 +9,19 @@ import UIKit
 
 protocol ListArticlesViewControllerProtocol: class{
     func reloadTable()
+    func startLoading()
+    func finishRefresh()
 }
 
 class ListArticlesViewController: UIViewController {
     
     @IBOutlet weak var tblListArticles: UITableView!
+    
+    lazy var refreshControl:UIRefreshControl = {
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(self.refreshData(_:)), for: .valueChanged)
+        return refreshControl
+    }()
 
     
     var presenter: ListArticlesPresenterProtocol!
@@ -36,9 +44,12 @@ class ListArticlesViewController: UIViewController {
     func setupTableView(){
         let nibInputText = UINib.init(nibName: "ArticleTableViewCell", bundle: nil)
         self.tblListArticles.register(nibInputText, forCellReuseIdentifier: "ArticleTableViewCell")
-        
+        self.tblListArticles.addSubview(self.refreshControl)
     }
-
+    
+    @objc func refreshData(_ refreshControl: UIRefreshControl){
+        presenter.getArticles()
+    }
 
 }
 
@@ -66,7 +77,16 @@ extension ListArticlesViewController: UITableViewDataSource, UITableViewDelegate
 }
 
 extension ListArticlesViewController: ListArticlesViewControllerProtocol{
+    func startLoading() {
+        self.showActivity()
+    }
+    
     func reloadTable(){
         self.tblListArticles.reloadData()
+    }
+    
+    func finishRefresh(){
+        self.refreshControl.endRefreshing()
+        self.hideActivity()
     }
 }

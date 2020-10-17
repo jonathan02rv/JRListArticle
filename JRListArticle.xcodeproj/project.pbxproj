@@ -43,6 +43,8 @@
 		9A861027253B56D000F04F27 /* ListArticlesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A861026253B56D000F04F27 /* ListArticlesRouter.swift */; };
 		9A861032253B914600F04F27 /* ArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A861030253B914600F04F27 /* ArticleTableViewCell.swift */; };
 		9A861033253B914600F04F27 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A861031253B914600F04F27 /* ArticleTableViewCell.xib */; };
+		9A86103B253BB39800F04F27 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A86103A253BB39800F04F27 /* Utils.swift */; };
+		9A861045253BB41300F04F27 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A861044253BB41300F04F27 /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +106,8 @@
 		9A861026253B56D000F04F27 /* ListArticlesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListArticlesRouter.swift; sourceTree = "<group>"; };
 		9A861030253B914600F04F27 /* ArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleTableViewCell.swift; sourceTree = "<group>"; };
 		9A861031253B914600F04F27 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
+		9A86103A253BB39800F04F27 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		9A861044253BB41300F04F27 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -367,6 +371,8 @@
 		9A860FD6253B371000F04F27 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9A861043253BB40400F04F27 /* Extensions */,
+				9A861042253BB3F600F04F27 /* Utils */,
 				9A860FD7253B372700F04F27 /* Localizable */,
 			);
 			path = Resources;
@@ -407,8 +413,8 @@
 		9A86100F253B548900F04F27 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
-				9A86102E253B905300F04F27 /* Views */,
 				9A861010253B549F00F04F27 /* ListArticles */,
+				9A86102E253B905300F04F27 /* Views */,
 				9A860FD6253B371000F04F27 /* Resources */,
 			);
 			path = Presentation;
@@ -489,6 +495,22 @@
 				9A861031253B914600F04F27 /* ArticleTableViewCell.xib */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		9A861042253BB3F600F04F27 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				9A86103A253BB39800F04F27 /* Utils.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		9A861043253BB40400F04F27 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9A861044253BB41300F04F27 /* Extensions.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -635,6 +657,7 @@
 				9A860F6A253A995800F04F27 /* ArticleModel.swift in Sources */,
 				9A860F81253A9A1900F04F27 /* HitEntity.swift in Sources */,
 				9A860F2E253A8BED00F04F27 /* AppDelegate.swift in Sources */,
+				9A86103B253BB39800F04F27 /* Utils.swift in Sources */,
 				9A861027253B56D000F04F27 /* ListArticlesRouter.swift in Sources */,
 				9A860F6F253A996100F04F27 /* HitModel.swift in Sources */,
 				9A860F9D253B21BC00F04F27 /* TimberjackHelper.swift in Sources */,
@@ -653,6 +676,7 @@
 				9A860FA5253B23DE00F04F27 /* Configuration.swift in Sources */,
 				9A860FC8253B2FC300F04F27 /* ServiceDataSource.swift in Sources */,
 				9A86100B253B4CAD00F04F27 /* ArticlesInteractor.swift in Sources */,
+				9A861045253BB41300F04F27 /* Extensions.swift in Sources */,
 				9A861018253B553A00F04F27 /* ListArticlesViewController.swift in Sources */,
 				9A860FDE253B388800F04F27 /* BaseResponseEntity.swift in Sources */,
 				9A860FB6253B283700F04F27 /* Requestprotocol.swift in Sources */,
