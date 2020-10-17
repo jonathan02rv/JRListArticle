@@ -8,11 +8,11 @@
 import Foundation
 
 public protocol ArticlesInteractorProtocol{
-    func getListArticles(completion: @escaping (Result<ArticleModel, Error>) -> Void)
+    func getListArticles(completion: @escaping (Result<[HitModel], Error>) -> Void)
 }
 
 public class ArticlesInteractor:Interactor, ArticlesInteractorProtocol{
-    public func getListArticles(completion: @escaping (Result<ArticleModel, Error>) -> Void) {
+    public func getListArticles(completion: @escaping (Result<[HitModel], Error>) -> Void) {
         return(self.repository as! ArticlesRepositoryProtocol).getListArticles { (result) in
             switch result{
             case .success(let data):

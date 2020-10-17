@@ -12,5 +12,5 @@ public protocol RepositoryProtocol{
 }
 
 public protocol ArticlesRepositoryProtocol: RepositoryProtocol{
-    func getListArticles(completion: @escaping (Swift.Result<ArticleModel, Error>) -> Void)
+    func getListArticles(completion: @escaping (Swift.Result<[HitModel], Error>) -> Void)
 }

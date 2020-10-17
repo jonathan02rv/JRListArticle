@@ -15,7 +15,7 @@ struct ArticleEntity: Codable{
 
 extension ArticleEntity{
     static func mapperArticleEntity(dataArticles:ArticleEntity)->ArticleModel{
-        return ArticleModel(hits: HitEntity.mapperArray(dataArrayValidate: dataArticles.hits))
+        return ArticleModel(hits: HitEntity.mapperArray(dataArray: dataArticles.hits))
     }
     
 }

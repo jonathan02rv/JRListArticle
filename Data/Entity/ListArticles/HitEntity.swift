@@ -18,8 +18,7 @@ struct HitEntity: Codable{
 //MARK: - MAPPER
 extension HitEntity {
 
-    static func mapperArray(dataArrayValidate:[HitEntity]?)-> [HitModel]?{
-        guard let dataArray = dataArrayValidate else{return nil}
+    static func mapperArray(dataArray:[HitEntity])-> [HitModel]{
         return dataArray.map { HitModel(storyTitle: $0.story_title ?? "", commentText: $0.comment_text ?? "", storyUrl: $0.story_url ?? "", createdAt: $0.created_at ?? "")
             
         }
