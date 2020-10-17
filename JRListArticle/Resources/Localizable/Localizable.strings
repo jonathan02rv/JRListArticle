@@ -1,0 +1,13 @@
+/* 
+  Localizable.strings
+  JRListArticle
+
+  Created by Jhonatahan on 10/17/20.
+  
+*/
+
+
+//MARK: - ERROS
+
+"defaultError" = "Algo salió mal, no pudimos conectarnos.";
+"networkConnectionError" = "Algo salió mal, valida si tienes activo tus datos o Wifi.";
