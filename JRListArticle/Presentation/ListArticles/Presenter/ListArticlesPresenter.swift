@@ -11,6 +11,7 @@ protocol ListArticlesPresenterProtocol{
     func viewDidLoad()
     func getNumberOfRows()->Int
     func getCellData(forRow row: Int)->(titleText: String, createAtText: String)
+    func removeArticle(forRow row: Int)
     func getArticles()
 }
 
@@ -44,6 +45,10 @@ extension ListArticlesPresenter: ListArticlesPresenterProtocol{
     func viewDidLoad(){
         self.view?.startLoading()
         self.getArticles()
+    }
+    
+    func removeArticle(forRow row: Int) {
+        self.listHit.remove(at: row)
     }
     
     //MARK: - Call Service
