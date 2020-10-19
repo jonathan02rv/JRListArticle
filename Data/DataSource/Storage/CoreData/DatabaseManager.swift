@@ -65,9 +65,47 @@ open class DatabaseManager {
         return allArticles
     }
 
-    // Get Show by uuid
-    class func getArticleWith(articleId: String) -> Article? {
+    // Get Article by articleId
+    class func getArticle(fromId articleId: String) -> Article? {
         let requested = NSFetchRequest<Article>(entityName: "Article")
+        requested.predicate = NSPredicate(format: "articleId == %@", articleId)
+
+        do {
+            let fetched = try DatabaseManager.getContext().fetch(requested)
+
+            //fetched is an array we need to convert it to a single object
+            if (fetched.count > 1) {
+                //TODO: handle duplicate records
+            } else {
+                return fetched.first //only use the first object..
+            }
+        } catch {
+            let nserror = error as NSError
+            //TODO: Handle error
+            print(nserror.description)
+        }
+
+        return nil
+    }
+    
+    class func getAllTrashArticles() -> Array<TrashArticle> {
+        let all = NSFetchRequest<TrashArticle>(entityName: "TrashArticle")
+        var allArticles = [TrashArticle]()
+
+        do {
+            let fetched = try DatabaseManager.getContext().fetch(all)
+            allArticles = fetched
+        } catch {
+            let nserror = error as NSError
+            //TODO: Handle Error
+            print(nserror.description)
+        }
+
+        return allArticles
+    }
+    
+    class func getTrashArticle(fromId articleId: String) -> TrashArticle? {
+        let requested = NSFetchRequest<TrashArticle>(entityName: "TrashArticle")
         requested.predicate = NSPredicate(format: "articleId == %@", articleId)
 
         do {
@@ -89,7 +127,7 @@ open class DatabaseManager {
     }
 
     // REMOVE / Delete
-    class func deleteArticle(with articleId: String) -> Bool {
+    class func deleteArticle(forId articleId: String) -> Bool {
         let success: Bool = true
 
         let requested = NSFetchRequest<Article>(entityName: "Article")
@@ -117,12 +155,29 @@ open class DatabaseManager {
             let entity = NSEntityDescription.entity(forEntityName: "Article", in: DatabaseManager.getContext())
             let newArticle = NSManagedObject(entity: entity!, insertInto: DatabaseManager.getContext())
             
+            guard validateArticleSave(article.articleId ?? "") else{
+                return
+            }
             newArticle.setValue(article.createdAt, forKey: "createdAt")
             newArticle.setValue(article.articleId, forKey: "articleId")
             newArticle.setValue(article.storyTitle, forKey: "storyTitle")
             newArticle.setValue(article.storyUrl, forKey: "storyUrl")
         }
+        print(DatabaseManager.getAllTrashArticles().count)
+    }
+    
+    func addTrashArticlesToCoreData(_ articleId: String) {
+        print(DatabaseManager.getAllTrashArticles().count)
+        let entity = NSEntityDescription.entity(forEntityName: "TrashArticle", in: DatabaseManager.getContext())
+        let newTrashArticle = NSManagedObject(entity: entity!, insertInto: DatabaseManager.getContext())
+        newTrashArticle.setValue(articleId, forKey: "articleId")
+        print(DatabaseManager.getAllTrashArticles().count)
         
+    }
+    
+    func validateArticleSave(_ articleId: String)->Bool{
+        guard let _ = DatabaseManager.getTrashArticle(fromId: articleId) else{return true}
+        return false
     }
     
     // Delete all Articles from CoreData

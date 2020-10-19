@@ -22,5 +22,8 @@ public class StorageDataRepository: StorageDataRepositoryProtocol{
         return dataSource.getStorageArticles()
     }
     
+    public func deleteArticle(forId articleId: String) -> Bool {
+        return dataSource.deleteArticle(forId: articleId)
+    }
     
 }

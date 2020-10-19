@@ -22,8 +22,6 @@ class ListArticlesPresenter{
     private var interactorArticles: ArticlesInteractorProtocol!
     private var router: ListArticlesRouter!
     
-    // Properties
-    var dataArticles: [Article]?
     var listHit = [HitModel]()
     
     init(view: ListArticlesViewControllerProtocol, interactorStorageData: StorageDataInteractorProtocol, interactorArticles: ArticlesInteractorProtocol, router: ListArticlesRouter) {
@@ -36,6 +34,10 @@ class ListArticlesPresenter{
 
 //MARK: - Protocol Implement
 extension ListArticlesPresenter: ListArticlesPresenterProtocol{
+    func deleteArticle(articleId: String) -> Bool {
+        return self.interactorStorageData.deleteArticle(forId: articleId)
+    }
+    
     func getNumberOfRows() -> Int {
         return self.listHit.count
     }
@@ -52,7 +54,9 @@ extension ListArticlesPresenter: ListArticlesPresenterProtocol{
     }
     
     func removeArticle(forRow row: Int) {
+        guard let idArticle = listHit[row].articleId else{return}
         self.listHit.remove(at: row)
+        let _ = deleteArticle(articleId: idArticle)
     }
     
     //MARK: - Call Service

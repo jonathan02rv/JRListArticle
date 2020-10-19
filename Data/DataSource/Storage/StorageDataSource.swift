@@ -21,5 +21,10 @@ internal class StorageDataSource: StorageDataSourceProtocol{
         }
     }
     
+    func deleteArticle(forId articleId: String) -> Bool {
+        guard DatabaseManager.deleteArticle(forId: articleId) else{return false}
+        DatabaseManager.standard.addTrashArticlesToCoreData(articleId)
+        return true
+    }
     
 }

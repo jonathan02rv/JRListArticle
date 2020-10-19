@@ -10,4 +10,5 @@ import Foundation
 internal protocol StorageDataSourceProtocol{
     func updateStorageArticles(articles: [HitModel])
     func getStorageArticles()->[HitModel]
+    func deleteArticle(forId articleId: String) -> Bool
 }
