@@ -10,4 +10,4 @@
 //MARK: - ERROS
 
 "defaultError" = "Algo salió mal, no pudimos conectarnos.";
-"networkConnectionError" = "Algo salió mal, valida si tienes activo tus datos o Wifi.";
+"networkConnectionError" = "No se detectó conexión a internet, valida si tienes activo tus datos o Wifi.";

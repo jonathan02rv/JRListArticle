@@ -18,13 +18,17 @@ protocol ListArticlesPresenterProtocol{
 class ListArticlesPresenter{
     
     private weak var view: ListArticlesViewControllerProtocol?
+    private var interactorStorageData :StorageDataInteractorProtocol!
     private var interactorArticles: ArticlesInteractorProtocol!
     private var router: ListArticlesRouter!
     
+    // Properties
+    var dataArticles: [Article]?
     var listHit = [HitModel]()
     
-    init(view: ListArticlesViewControllerProtocol, interactorArticles: ArticlesInteractorProtocol, router: ListArticlesRouter) {
+    init(view: ListArticlesViewControllerProtocol, interactorStorageData: StorageDataInteractorProtocol, interactorArticles: ArticlesInteractorProtocol, router: ListArticlesRouter) {
         self.view = view
+        self.interactorStorageData = interactorStorageData
         self.interactorArticles = interactorArticles
         self.router = router
     }
@@ -59,10 +63,25 @@ extension ListArticlesPresenter: ListArticlesPresenterProtocol{
             switch result{
             case .success(let data):
                 sweak.listHit = data
+                sweak.interactorStorageData.updateStorageArticles(articles: data)
                 sweak.view?.reloadTable()
                 print("SUCCESS: \(data)")
             case .failure(let error):
-                print("ERROR: \(error)")
+                
+                sweak.listHit = sweak.interactorStorageData.getStorageArticles()
+                sweak.view?.reloadTable()
+                
+                guard let errorModel =  error as? ErrorModel else {
+                    print("ERROR: \(error.localizedDescription)")
+                    return
+                }
+                switch errorModel.type {
+                case .networkError,.custom,.unknownError:
+                    print("ERROR: \(errorModel.description ?? "")")
+                default:
+                    break
+                }
+                
             }
         }
     }

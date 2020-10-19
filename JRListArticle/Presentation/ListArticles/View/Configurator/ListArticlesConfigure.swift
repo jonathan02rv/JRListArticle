@@ -13,9 +13,10 @@ protocol ListArticlesConfiguratorProtocol{
 
 class ListArticlesConfigurator: ListArticlesConfiguratorProtocol{
     func configure(controller: ListArticlesViewController) {
+        let interactorStorageData = StorageDataInteractor(repository: StorageDataRepository())
         let interactorArticle = ArticlesInteractor(repository: ArticlesRepository())
         let router = ListArticlesRouter(withView: controller)
-        controller.presenter = ListArticlesPresenter(view: controller, interactorArticles: interactorArticle, router: router)
+        controller.presenter = ListArticlesPresenter(view: controller, interactorStorageData: interactorStorageData, interactorArticles: interactorArticle, router: router)
     }
     
     
