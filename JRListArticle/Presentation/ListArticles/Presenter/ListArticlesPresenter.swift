@@ -13,6 +13,8 @@ protocol ListArticlesPresenterProtocol{
     func getCellData(forRow row: Int)->(titleText: String, createAtText: String)
     func removeArticle(forRow row: Int)
     func getArticles()
+    func getTitleView()-> String
+    func routeToDetailArticle(forRow row: Int)
 }
 
 class ListArticlesPresenter{
@@ -20,11 +22,11 @@ class ListArticlesPresenter{
     private weak var view: ListArticlesViewControllerProtocol?
     private var interactorStorageData :StorageDataInteractorProtocol!
     private var interactorArticles: ArticlesInteractorProtocol!
-    private var router: ListArticlesRouter!
+    private var router: ListArticlesRouterProtocol!
     
     var listHit = [HitModel]()
     
-    init(view: ListArticlesViewControllerProtocol, interactorStorageData: StorageDataInteractorProtocol, interactorArticles: ArticlesInteractorProtocol, router: ListArticlesRouter) {
+    init(view: ListArticlesViewControllerProtocol, interactorStorageData: StorageDataInteractorProtocol, interactorArticles: ArticlesInteractorProtocol, router: ListArticlesRouterProtocol) {
         self.view = view
         self.interactorStorageData = interactorStorageData
         self.interactorArticles = interactorArticles
@@ -34,6 +36,15 @@ class ListArticlesPresenter{
 
 //MARK: - Protocol Implement
 extension ListArticlesPresenter: ListArticlesPresenterProtocol{
+    func routeToDetailArticle(forRow row: Int) {
+        let viewData:ViewData = ArticleViewData(storyUrl: listHit[row].storyUrl ?? "")
+        router.routeToDetail(withData: viewData)
+    }
+    
+    func getTitleView()-> String {
+        return Constants.ViewTitle.listArticles
+    }
+    
     func deleteArticle(articleId: String) -> Bool {
         return self.interactorStorageData.deleteArticle(forId: articleId)
     }

@@ -8,7 +8,7 @@
 import UIKit
 
 protocol ListArticlesRouterProtocol{
-    func routeToDetail()
+    func routeToDetail(withData viewData: ViewData)
 }
 
 class ListArticlesRouter{
@@ -20,7 +20,10 @@ class ListArticlesRouter{
 }
 
 extension ListArticlesRouter: ListArticlesRouterProtocol{
-    func routeToDetail() {
+    func routeToDetail(withData viewData: ViewData) {
+        guard let detailController = storyboard.instantiateViewController(withIdentifier: "DetailArticleViewController") as? DetailArticleViewController, let view = currentViewController else { return }
+        detailController.viewData = viewData
+        view.navigationController?.pushViewController(detailController, animated: true)
     }
     
     

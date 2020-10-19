@@ -33,6 +33,11 @@ class ListArticlesViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.title = presenter.getTitleView()
+    }
+    
     
     private func viewSetup(){
         configurator.configure(controller: self)
@@ -82,7 +87,7 @@ extension ListArticlesViewController: UITableViewDataSource, UITableViewDelegate
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        presenter.routeToDetailArticle(forRow: indexPath.row)
     }
     
     

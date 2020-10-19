@@ -51,6 +51,12 @@
 		9A861033253B914600F04F27 /* ArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9A861031253B914600F04F27 /* ArticleTableViewCell.xib */; };
 		9A86103B253BB39800F04F27 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A86103A253BB39800F04F27 /* Utils.swift */; };
 		9A861045253BB41300F04F27 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A861044253BB41300F04F27 /* Extensions.swift */; };
+		9A9BBAB6253DDBC8002DBD8C /* DetailArticleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A9BBAB5253DDBC8002DBD8C /* DetailArticleViewController.swift */; };
+		9ADCBC86253E32D400D2F8FA /* DetailArticleConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCBC85253E32D400D2F8FA /* DetailArticleConfigurator.swift */; };
+		9ADCBC8B253E336000D2F8FA /* DetailArticleRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCBC8A253E336000D2F8FA /* DetailArticleRouter.swift */; };
+		9ADCBC90253E35D400D2F8FA /* DetailArticlePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCBC8F253E35D400D2F8FA /* DetailArticlePresenter.swift */; };
+		9ADCBC96253E398300D2F8FA /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCBC95253E398300D2F8FA /* Protocols.swift */; };
+		9ADCBC9F253E39D900D2F8FA /* ArticleViewData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9ADCBC9E253E39D900D2F8FA /* ArticleViewData.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +126,12 @@
 		9A861031253B914600F04F27 /* ArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ArticleTableViewCell.xib; sourceTree = "<group>"; };
 		9A86103A253BB39800F04F27 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		9A861044253BB41300F04F27 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		9A9BBAB5253DDBC8002DBD8C /* DetailArticleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArticleViewController.swift; sourceTree = "<group>"; };
+		9ADCBC85253E32D400D2F8FA /* DetailArticleConfigurator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArticleConfigurator.swift; sourceTree = "<group>"; };
+		9ADCBC8A253E336000D2F8FA /* DetailArticleRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArticleRouter.swift; sourceTree = "<group>"; };
+		9ADCBC8F253E35D400D2F8FA /* DetailArticlePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailArticlePresenter.swift; sourceTree = "<group>"; };
+		9ADCBC95253E398300D2F8FA /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
+		9ADCBC9E253E39D900D2F8FA /* ArticleViewData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArticleViewData.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -413,6 +425,7 @@
 		9A860FD6253B371000F04F27 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9ADCBC94253E396F00D2F8FA /* Protocols */,
 				9A861043253BB40400F04F27 /* Extensions */,
 				9A861042253BB3F600F04F27 /* Utils */,
 				9A860FD7253B372700F04F27 /* Localizable */,
@@ -455,6 +468,7 @@
 		9A86100F253B548900F04F27 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				9A9BBAAF253DDB5D002DBD8C /* DetailArticle */,
 				9A861010253B549F00F04F27 /* ListArticles */,
 				9A86102E253B905300F04F27 /* Views */,
 				9A860FD6253B371000F04F27 /* Resources */,
@@ -553,6 +567,74 @@
 				9A861044253BB41300F04F27 /* Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9A9BBAAF253DDB5D002DBD8C /* DetailArticle */ = {
+			isa = PBXGroup;
+			children = (
+				9A9BBAB2253DDB7D002DBD8C /* Router */,
+				9A9BBAB0253DDB69002DBD8C /* Presenter */,
+				9A9BBAB1253DDB71002DBD8C /* View */,
+			);
+			path = DetailArticle;
+			sourceTree = "<group>";
+		};
+		9A9BBAB0253DDB69002DBD8C /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				9ADCBC8F253E35D400D2F8FA /* DetailArticlePresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		9A9BBAB1253DDB71002DBD8C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				9ADCBC9D253E39A900D2F8FA /* ViewData */,
+				9A9BBAB3253DDB96002DBD8C /* Configurator */,
+				9A9BBAB4253DDB9F002DBD8C /* Controller */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		9A9BBAB2253DDB7D002DBD8C /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				9ADCBC8A253E336000D2F8FA /* DetailArticleRouter.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		9A9BBAB3253DDB96002DBD8C /* Configurator */ = {
+			isa = PBXGroup;
+			children = (
+				9ADCBC85253E32D400D2F8FA /* DetailArticleConfigurator.swift */,
+			);
+			path = Configurator;
+			sourceTree = "<group>";
+		};
+		9A9BBAB4253DDB9F002DBD8C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				9A9BBAB5253DDBC8002DBD8C /* DetailArticleViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		9ADCBC94253E396F00D2F8FA /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				9ADCBC95253E398300D2F8FA /* Protocols.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		9ADCBC9D253E39A900D2F8FA /* ViewData */ = {
+			isa = PBXGroup;
+			children = (
+				9ADCBC9E253E39D900D2F8FA /* ArticleViewData.swift */,
+			);
+			path = ViewData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -694,9 +776,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				9A860FB1253B279F00F04F27 /* HeadersRequest.swift in Sources */,
+				9ADCBC8B253E336000D2F8FA /* DetailArticleRouter.swift in Sources */,
+				9A9BBAB6253DDBC8002DBD8C /* DetailArticleViewController.swift in Sources */,
 				9A860FC2253B2F0300F04F27 /* ServiceDataSourceProtocol.swift in Sources */,
 				9A860FF8253B46DA00F04F27 /* ArticlesRepository.swift in Sources */,
+				9ADCBC9F253E39D900D2F8FA /* ArticleViewData.swift in Sources */,
 				9A860F6A253A995800F04F27 /* ArticleModel.swift in Sources */,
+				9ADCBC90253E35D400D2F8FA /* DetailArticlePresenter.swift in Sources */,
 				9A860F81253A9A1900F04F27 /* HitEntity.swift in Sources */,
 				9A860F2E253A8BED00F04F27 /* AppDelegate.swift in Sources */,
 				9A86103B253BB39800F04F27 /* Utils.swift in Sources */,
@@ -708,6 +794,7 @@
 				9A11B9A6253D3F3400B2DA5F /* StorageDataRepository.swift in Sources */,
 				9A861022253B56A200F04F27 /* ListArticlesPresenter.swift in Sources */,
 				9A11B96D253D338700B2DA5F /* StorageDataSourceProtocol.swift in Sources */,
+				9ADCBC86253E32D400D2F8FA /* DetailArticleConfigurator.swift in Sources */,
 				9A861005253B4C3A00F04F27 /* Interactor.swift in Sources */,
 				9A861032253B914600F04F27 /* ArticleTableViewCell.swift in Sources */,
 				9A860F38253A8BED00F04F27 /* JRListArticle.xcdatamodeld in Sources */,
@@ -717,6 +804,7 @@
 				9A11B97D253D36A200B2DA5F /* DatabaseManager.swift in Sources */,
 				9A860FAC253B277D00F04F27 /* ArticleRequest.swift in Sources */,
 				9A860F79253A9A0B00F04F27 /* ArticleEntity.swift in Sources */,
+				9ADCBC96253E398300D2F8FA /* Protocols.swift in Sources */,
 				9A860F30253A8BED00F04F27 /* SceneDelegate.swift in Sources */,
 				9A860FFD253B471D00F04F27 /* ArticlesRepositoryProtocol.swift in Sources */,
 				9A860FE9253B3E0800F04F27 /* ErrorModel.swift in Sources */,

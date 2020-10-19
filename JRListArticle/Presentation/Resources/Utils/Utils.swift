@@ -6,3 +6,11 @@
 //
 
 import UIKit
+
+class Constants{
+    
+    struct ViewTitle{
+        static let listArticles = "List Articles"
+        static let detailArticle = "Article Detail"
+    }
+}
