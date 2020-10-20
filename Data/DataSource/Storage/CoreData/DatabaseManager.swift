@@ -133,7 +133,6 @@ open class DatabaseManager {
         let requested = NSFetchRequest<Article>(entityName: "Article")
         requested.predicate = NSPredicate(format: "articleId == %@", articleId)
 
-
         do {
             let fetched = try DatabaseManager.getContext().fetch(requested)
             for article in fetched {
@@ -145,34 +144,28 @@ open class DatabaseManager {
             //TODO: Handle Error
             print(nserror.description)
         }
-
         return !success
     }
     
     func addNewArticlesToCoreData(_ articles: [HitModel]) {
         
         for article in articles {
+            guard validateArticleSave(article.articleId ?? "") else{
+                continue
+            }
             let entity = NSEntityDescription.entity(forEntityName: "Article", in: DatabaseManager.getContext())
             let newArticle = NSManagedObject(entity: entity!, insertInto: DatabaseManager.getContext())
-            
-            guard validateArticleSave(article.articleId ?? "") else{
-                return
-            }
             newArticle.setValue(article.createdAt, forKey: "createdAt")
             newArticle.setValue(article.articleId, forKey: "articleId")
             newArticle.setValue(article.storyTitle, forKey: "storyTitle")
             newArticle.setValue(article.storyUrl, forKey: "storyUrl")
         }
-        print(DatabaseManager.getAllTrashArticles().count)
     }
     
     func addTrashArticlesToCoreData(_ articleId: String) {
-        print(DatabaseManager.getAllTrashArticles().count)
         let entity = NSEntityDescription.entity(forEntityName: "TrashArticle", in: DatabaseManager.getContext())
         let newTrashArticle = NSManagedObject(entity: entity!, insertInto: DatabaseManager.getContext())
         newTrashArticle.setValue(articleId, forKey: "articleId")
-        print(DatabaseManager.getAllTrashArticles().count)
-        
     }
     
     func validateArticleSave(_ articleId: String)->Bool{

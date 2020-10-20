@@ -77,10 +77,9 @@ extension ListArticlesPresenter: ListArticlesPresenterProtocol{
             sweak.view?.finishRefresh()
             switch result{
             case .success(let data):
-                sweak.listHit = data
                 sweak.interactorStorageData.updateStorageArticles(articles: data)
+                sweak.listHit = sweak.interactorStorageData.getStorageArticles()
                 sweak.view?.reloadTable()
-                print("SUCCESS: \(data)")
             case .failure(let error):
                 
                 sweak.listHit = sweak.interactorStorageData.getStorageArticles()
