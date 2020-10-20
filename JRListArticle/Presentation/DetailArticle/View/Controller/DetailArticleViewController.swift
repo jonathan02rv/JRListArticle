@@ -6,12 +6,15 @@
 //
 
 import UIKit
+import WebKit
 
 protocol DetailArticleViewControllerProtocol: class{
     
 }
 
-class DetailArticleViewController: UIViewController {
+class DetailArticleViewController: UIViewController, WKNavigationDelegate {
+    
+    @IBOutlet var webView: WKWebView!
     
     var viewData : ViewData?
     var presenter: DetailArticlePresenterProtocol!
@@ -31,7 +34,27 @@ class DetailArticleViewController: UIViewController {
     
     private func viewSetup(){
         self.configurator.configure(controller: self)
-        presenter.viewDidLoad()
+        loadWebView()
+    }
+    
+    private func loadWebView(){
+        if let myUrlArticle = URL(string: presenter.getArticleUrl()), UIApplication.shared.canOpenURL(myUrlArticle){
+            self.webView.navigationDelegate = self
+            self.webView.load(URLRequest(url: myUrlArticle))
+            self.showActivity()
+            webView.allowsBackForwardNavigationGestures = true
+        }else{
+            presenter.goToPreviusView()
+            print("Don`t open url")
+        }
+    }
+    
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        self.hideActivity()
+    }
+    
+    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        self.hideActivity()
     }
 
 }

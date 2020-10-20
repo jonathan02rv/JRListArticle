@@ -10,7 +10,7 @@ import Foundation
 protocol DetailArticlePresenterProtocol{
     func getTitleView()-> String
     func goToPreviusView()
-    func viewDidLoad()
+    func getArticleUrl()-> String
 }
 
 class DetailArticlePresenter{
@@ -26,9 +26,9 @@ class DetailArticlePresenter{
 }
 
 extension DetailArticlePresenter: DetailArticlePresenterProtocol{
-    
-    func viewDidLoad(){
-        
+    func getArticleUrl() -> String {
+        guard let viewData = (viewData as? ArticleViewData) else{return ""}
+        return viewData.storyUrl
     }
     
     func getTitleView() -> String {
