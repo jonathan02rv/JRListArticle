@@ -9,9 +9,9 @@ import Foundation
 
 
 public struct ArticleModel{
-    public let hits: [HitModel]?
+    public let hits: [HitModel]
     
-    public init(hits: [HitModel]?){
+    public init(hits: [HitModel]){
         self.hits = hits
     }
 }

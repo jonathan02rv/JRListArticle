@@ -8,16 +8,14 @@
 import Foundation
 
 struct ArticleEntity: Codable{
-    var hits: [HitEntity]?
+    var hits: [HitEntity]
 }
 
 //MARK: - MAPPER
 
 extension ArticleEntity{
-    static func mapperArticleEntity(dataArticles:ArticleEntity?)->ArticleModel?{
-        
-        guard let articles = dataArticles else{return nil}
-        return ArticleModel(hits: HitEntity.mapperArray(dataArrayValidate: articles.hits))
+    static func mapperArticleEntity(dataArticles:ArticleEntity)->ArticleModel{
+        return ArticleModel(hits: HitEntity.mapperArray(dataArray: dataArticles.hits))
     }
     
 }
