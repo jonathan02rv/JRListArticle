@@ -54,6 +54,7 @@ open class DatabaseManager {
         var allArticles = [Article]()
 
         do {
+            all.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: false)]
             let fetched = try DatabaseManager.getContext().fetch(all)
             allArticles = fetched
         } catch {
