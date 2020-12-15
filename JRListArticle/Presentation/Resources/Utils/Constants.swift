@@ -10,7 +10,7 @@ import Foundation
 class Constants{
     
     struct ViewTitle{
-        static let listArticles = "List Articles"
-        static let detailArticle = "Article Detail"
+        static let listArticles = "titleList"
+        static let detailArticle = "titleDetail"
     }
 }

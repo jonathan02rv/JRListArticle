@@ -42,7 +42,7 @@ extension ListArticlesPresenter: ListArticlesPresenterProtocol{
     }
     
     func getTitleView()-> String {
-        return Constants.ViewTitle.listArticles
+        return Constants.ViewTitle.listArticles.localized
     }
     
     func deleteArticle(articleId: String) -> Bool {

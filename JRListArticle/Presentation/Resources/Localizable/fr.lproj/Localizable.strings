@@ -1,0 +1,15 @@
+/* 
+  Localizable.strings
+  JRListArticle
+
+  Created by Jhonatahan on 10/17/20.
+  
+*/
+
+
+//MARK: - ERROS
+
+"defaultError" = "Algo salió mal, no pudimos conectarnos. - FRANCES";
+"networkConnectionError" = "No se detectó conexión a internet, valida si tienes activo tus datos o Wifi. - FRANCES";
+"titleList" = "List Articles - French";
+"titleDetail" = "Article Detail - French";

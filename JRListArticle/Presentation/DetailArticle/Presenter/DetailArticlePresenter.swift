@@ -32,7 +32,7 @@ extension DetailArticlePresenter: DetailArticlePresenterProtocol{
     }
     
     func getTitleView() -> String {
-        return Constants.ViewTitle.detailArticle
+        return Constants.ViewTitle.detailArticle.localized
     }
     
     func goToPreviusView(){
