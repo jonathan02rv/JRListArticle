@@ -27,7 +27,15 @@ class ServiceDataSource: ServiceDataSourceProtocol{
     func getListArticles(request: RequestObject, completion: @escaping (Swift.Result<ArticleEntity, Error>) -> Void) {
         if Reachability.isConnectedToNetwork(){
             guard let requestRef = request as? ArticleRequestObject else{return}
-            let url = AppConfig.serverBaseUrl + requestRef.path
+            
+            let baseURL = AppEnvironment.configuration.serverBaseUrl
+            //MARK:- PRINT BASE URL FOR CHECK THE SETUP ENVIROMENT IS WORK
+            print(baseURL)
+            
+            //MARK:- WE HAVE TO USE PROD ENVIROMENT BECAUSE OTHERS API REST NO YET IMPLEMENTS
+            let url = ProdAppConfig.serverBaseUrl + requestRef.path
+            
+            
             
             sessionManager?.request(url, method: requestRef.method, parameters: nil, encoding: requestRef.encoding, headers: requestRef.headers).validate().debugLog().responseData(completionHandler: { (response) in
                 
