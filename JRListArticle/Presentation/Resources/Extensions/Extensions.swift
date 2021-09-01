@@ -15,7 +15,13 @@ extension UIViewController{
         atvView = UIView(frame: self.view.bounds)
         guard let _ = atvView else{return}
         atvView!.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
-        let atvIndicator = UIActivityIndicatorView(style: .large)
+        var atvIndicator = UIActivityIndicatorView()
+        if #available(iOS 13.0, *) {
+            atvIndicator = UIActivityIndicatorView(style: .large)
+        } else {
+            // Fallback on earlier versions
+            atvIndicator = UIActivityIndicatorView(style: .whiteLarge)
+        }
         atvIndicator.color = .black
         atvIndicator.center = atvView!.center
         atvIndicator.startAnimating()

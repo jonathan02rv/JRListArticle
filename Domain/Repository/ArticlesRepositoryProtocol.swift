@@ -6,6 +6,7 @@
 //
 
 import Foundation
+@_exported import class RxSwift.Observable
 
 public protocol RepositoryProtocol{
     
@@ -13,4 +14,5 @@ public protocol RepositoryProtocol{
 
 public protocol ArticlesRepositoryProtocol: RepositoryProtocol{
     func getListArticles(completion: @escaping (Swift.Result<[HitModel], Error>) -> Void)
+    func getListArticlesRx()->Observable<[HitModel]>
 }

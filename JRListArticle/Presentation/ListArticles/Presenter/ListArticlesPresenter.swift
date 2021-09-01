@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import RxSwift
 
 protocol ListArticlesPresenterProtocol{
     func viewDidLoad()
@@ -15,6 +16,8 @@ protocol ListArticlesPresenterProtocol{
     func getArticles()
     func getTitleView()-> String
     func routeToDetailArticle(forRow row: Int)
+    //MARK:- RxSwift Method
+    func getArticlesRx()
 }
 
 class ListArticlesPresenter{
@@ -23,6 +26,8 @@ class ListArticlesPresenter{
     private var interactorStorageData :StorageDataInteractorProtocol!
     private var interactorArticles: ArticlesInteractorProtocol!
     private var router: ListArticlesRouterProtocol!
+    
+    var subscribeArticles :  Disposable!
     
     var listHit = [HitModel]()
     
@@ -62,6 +67,7 @@ extension ListArticlesPresenter: ListArticlesPresenterProtocol{
     func viewDidLoad(){
         self.view?.startLoading()
         self.getArticles()
+        //self.getArticlesRx()
     }
     
     func removeArticle(forRow row: Int) {
@@ -98,5 +104,57 @@ extension ListArticlesPresenter: ListArticlesPresenterProtocol{
                 
             }
         }
+    }
+    
+}
+
+//MARK:- RxSwift Methods
+extension ListArticlesPresenter{
+    func getArticlesRx(){
+        subscribeArticles = self.interactorArticles.getListArticlesRx()
+            .subscribe(on: MainScheduler.instance)
+            .observe(on: MainScheduler.instance)
+            .subscribe(
+            onNext: onNext(),
+         onError: onError(),
+         onCompleted: onCompleted(),
+         onDisposed: onDisposed())
+        
+ 
+    }
+    
+    private func onNext()->([HitModel])->Void{
+        let onNext: ([HitModel])->Void = { [weak self] (items) in
+            guard let sweak = self else{return}
+            sweak.interactorStorageData.updateStorageArticles(articles: items)
+            sweak.listHit = items
+            sweak.view?.reloadTable()
+        }
+        return onNext
+    }
+    
+    private func onError()->(Error)->Void{
+        let onError: ((Error)->Void) = { [weak self] error in
+            guard let sweak = self else{return}
+            sweak.listHit = sweak.interactorStorageData.getStorageArticles()
+            if sweak.listHit.isEmpty {print("Storage empty")}
+            sweak.view?.reloadTable()
+        }
+        return onError
+    }
+    
+    private func onCompleted()->()->Void{
+        let onCompleted: ()->Void = {[weak self] in
+            guard let sweak = self else{return}
+            sweak.view?.finishRefresh()
+        }
+        return onCompleted
+    }
+    
+    private func onDisposed()->()->Void{
+        let onDisposed: ()->Void = {[weak self] in
+            self?.subscribeArticles.dispose()
+        }
+        return onDisposed
     }
 }

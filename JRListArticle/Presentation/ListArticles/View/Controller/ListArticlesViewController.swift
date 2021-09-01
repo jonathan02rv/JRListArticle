@@ -53,7 +53,8 @@ class ListArticlesViewController: UIViewController {
     }
     
     @objc func refreshData(_ refreshControl: UIRefreshControl){
-        presenter.getArticles()
+        //presenter.getArticles()
+        presenter.getArticlesRx()
     }
 
 }

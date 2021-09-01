@@ -10,9 +10,11 @@ import Foundation
 public class ArticlesRepository: ArticlesRepositoryProtocol{
     
     private let dataSource: ServiceDataSourceProtocol
+    private let dataSourceRx: ServiceDataSourceRxProtocol
     
     public init(){
         self.dataSource = ServiceDataSource()
+        self.dataSourceRx = ServiceDataSourceRx()
     }
     
     public func getListArticles(completion: @escaping (Result<[HitModel], Error>) -> Void) {
@@ -27,5 +29,9 @@ public class ArticlesRepository: ArticlesRepositoryProtocol{
         }
     }
     
-    
+    public func getListArticlesRx()->Observable<[HitModel]>{
+        return dataSourceRx.getListArticles().map {
+            HitEntity.mapperArray(dataArray: $0)
+        }
+    }
 }
